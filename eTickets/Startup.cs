@@ -33,7 +33,10 @@ namespace eTickets
         {
 
             //DbContext configuration
-            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
+             services.AddDbContext<AppDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnectionString")));
+            //services.PAppDbContext<PAppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
+
+
 
             //Services configuration
             services.AddScoped<IActorsService, ActorsService>();
