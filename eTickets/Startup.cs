@@ -31,9 +31,11 @@ namespace eTickets
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            DotNetEnv.Env.Load();
+            var dbstring = Environment.GetEnvironmentVariable("DOTNET_PSQLURI");
+            Console.WriteLine($"this is the message i am expecting '{dbstring}'");
             //DbContext configuration
-             services.AddDbContext<AppDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnectionString")));
+            services.AddDbContext<AppDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString(dbstring)));
             //services.PAppDbContext<PAppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
 
 
