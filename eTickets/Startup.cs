@@ -32,10 +32,9 @@ namespace eTickets
         public void ConfigureServices(IServiceCollection services)
         {
             DotNetEnv.Env.Load();
-            var dbstring = Environment.GetEnvironmentVariable("DOTNET_PSQLURI");
-            Console.WriteLine($"this is the message i am expecting '{dbstring}'");
+         
             //DbContext configuration
-            services.AddDbContext<AppDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString(dbstring)));
+            services.AddDbContext<AppDbContext>(options => options.UseNpgsql(Environment.GetEnvironmentVariable("DOTNET_PSQLURI")));
             //services.PAppDpppbContext<PAppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
 
 
