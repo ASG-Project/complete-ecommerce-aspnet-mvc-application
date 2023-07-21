@@ -36,7 +36,7 @@ namespace eTickets
             Console.WriteLine($"this is the message i am expecting '{dbstring}'");
             //DbContext configuration
             services.AddDbContext<AppDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString(dbstring)));
-            //services.PAppDbContext<PAppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
+            //services.PAppDpppbContext<PAppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
 
 
 
